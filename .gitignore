@@ -5,6 +5,13 @@
 /1 - TerminalHacker/[Bb]uilds/
 /1 - TerminalHacker/Assets/AssetStoreTools*
 
+/2 - ProjectBoost/[Ll]ibrary/
+/2 - ProjectBoost/[Tt]emp/
+/2 - ProjectBoost/[Oo]bj/
+/2 - ProjectBoost/[Bb]uild/
+/2 - ProjectBoost/[Bb]uilds/
+/2 - ProjectBoost/Assets/AssetStoreTools*
+
 # Visual Studio cache directory
 .vs/
 
