@@ -8,6 +8,7 @@ public class Rocket : MonoBehaviour
 
     protected Rigidbody _rigidbody;
     protected AudioSource _audioSource;
+    protected bool _collisionsEnabled = true;
 
     [SerializeField] float thrust = 250f;
     [SerializeField] float rcsThrust = 250f;
@@ -33,11 +34,16 @@ public class Rocket : MonoBehaviour
             ProcessThrust();
             ProcessRotation();
         }
+
+        if(Debug.isDebugBuild)
+        {
+            ProcessHack();
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (_state != State.Alive)
+        if (_state != State.Alive || !_collisionsEnabled)
             return;
 
         switch(collision.gameObject.tag)
@@ -85,7 +91,8 @@ public class Rocket : MonoBehaviour
 
     protected void LoadNextLevel()
     {
-        SceneManager.LoadScene(1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(++currentSceneIndex < SceneManager.sceneCountInBuildSettings ? currentSceneIndex : 0);
     }
 
     protected void ProcessThrust()
@@ -126,5 +133,17 @@ public class Rocket : MonoBehaviour
         }
 
         _rigidbody.freezeRotation = false; // resume physics control of rotation
+    }
+
+    protected void ProcessHack()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            _collisionsEnabled = !_collisionsEnabled;
+        }
     }
 }
