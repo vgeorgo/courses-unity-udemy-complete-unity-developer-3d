@@ -120,7 +120,7 @@ public class Rocket : MonoBehaviour
 
     protected void ProcessRotation()
     {
-        _rigidbody.freezeRotation = true; // take manual control of rotation
+        _rigidbody.angularVelocity = Vector3.zero; // remove rotation due to physics
 
         if(Input.GetKey(KeyCode.LeftArrow))
         {
@@ -131,8 +131,6 @@ public class Rocket : MonoBehaviour
         {
             transform.Rotate(-Vector3.forward * Time.deltaTime * rcsThrust);
         }
-
-        _rigidbody.freezeRotation = false; // resume physics control of rotation
     }
 
     protected void ProcessHack()
