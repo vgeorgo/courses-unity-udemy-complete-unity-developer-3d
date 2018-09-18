@@ -12,6 +12,13 @@
 /2 - ProjectBoost/[Bb]uilds/
 /2 - ProjectBoost/Assets/AssetStoreTools*
 
+/3 - RailsShooter/[Ll]ibrary/
+/3 - RailsShooter/[Tt]emp/
+/3 - RailsShooter/[Oo]bj/
+/3 - RailsShooter/[Bb]uild/
+/3 - RailsShooter/[Bb]uilds/
+/3 - RailsShooter/Assets/AssetStoreTools*
+
 # Visual Studio cache directory
 .vs/
 
