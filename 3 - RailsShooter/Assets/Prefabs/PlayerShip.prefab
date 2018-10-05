@@ -131,7 +131,7 @@ MonoBehaviour:
   yRange: 3
   positionPitchFactor: -8.5
   controlPitchFactor: -22
-  positionYawFactor: 11
+  positionYawFactor: 9
   positionRollFactor: -20
 --- !u!198 &198691096952781788
 ParticleSystem:
