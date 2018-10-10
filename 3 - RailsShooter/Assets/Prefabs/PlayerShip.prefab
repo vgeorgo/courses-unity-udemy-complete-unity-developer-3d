@@ -39,6 +39,10 @@ GameObject:
   - component: {fileID: 33914476023556856}
   - component: {fileID: 23260291858423068}
   - component: {fileID: 114344903601482218}
+  - component: {fileID: 65748789686205460}
+  - component: {fileID: 54320739472191898}
+  - component: {fileID: 114392879038692342}
+  - component: {fileID: 114349227011841736}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -115,6 +119,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080414663825032}
   m_Mesh: {fileID: 4300006, guid: 6c11e79470dad4b4bb66b279d2660007, type: 3}
+--- !u!54 &54320739472191898
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080414663825032}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65748789686205460
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080414663825032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.61, y: 0.91, z: 2.61}
+  m_Center: {x: -0.00000029802322, y: 0.000000059604645, z: -0.000000059604645}
 --- !u!114 &114344903601482218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +164,35 @@ MonoBehaviour:
   controlPitchFactor: -22
   positionYawFactor: 9
   positionRollFactor: -20
+--- !u!114 &114349227011841736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080414663825032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902fa013337535041a4c164d93b84975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xSpeed: 4
+  xRange: 5
+  yRange: 3.5
+  positionPitchFactor: -5
+  controlPitchFactor: -22
+  positionYawFactor: 9
+  positionRollFactor: -22
+--- !u!114 &114392879038692342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080414663825032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc8ada85abb9bb45897c64ddd5686ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198691096952781788
 ParticleSystem:
   m_ObjectHideFlags: 1

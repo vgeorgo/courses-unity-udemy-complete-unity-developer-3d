@@ -1,30 +1,29 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("General")]
     [Tooltip("In m/s")][SerializeField] float xSpeed = 4f;
     [Tooltip("In m")][SerializeField] float xRange = 2f;
     [Tooltip("In m")][SerializeField] float yRange = 1f;
 
+    [Header("Screen Positioning")]
     [SerializeField] float positionPitchFactor = -5f;
     [SerializeField] float controlPitchFactor = -25f;
-
     [SerializeField] float positionYawFactor = 6f;
-
     [SerializeField] float positionRollFactor = -20f;
 
     float xThrow, yThrow;
-
-    void Start ()
-    {
-		
-	}
+    bool isControlEnabled = true;
 	
 	void Update ()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if(isControlEnabled)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        }
     }
 
     void ProcessTranslation()
@@ -55,5 +54,10 @@ public class Player : MonoBehaviour
         float roll = xThrow * positionRollFactor;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    void OnPlayerDeath()
+    {
+        isControlEnabled = false;
     }
 }
