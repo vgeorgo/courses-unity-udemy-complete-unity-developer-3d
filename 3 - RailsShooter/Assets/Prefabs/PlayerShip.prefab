@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 198691096952781788}
   - component: {fileID: 199948315279536786}
   m_Layer: 0
-  m_Name: Bullets
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1031086664208876
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +287,7 @@ MonoBehaviour:
   xSpeed: 14
   xRange: 5
   yRange: 3
+  guns: []
   positionPitchFactor: -8.5
   controlPitchFactor: -22
   positionYawFactor: 9
@@ -305,6 +306,8 @@ MonoBehaviour:
   xSpeed: 4
   xRange: 5
   yRange: 3.5
+  guns:
+  - {fileID: 1021959093295538}
   positionPitchFactor: -5
   controlPitchFactor: -22
   positionYawFactor: 9

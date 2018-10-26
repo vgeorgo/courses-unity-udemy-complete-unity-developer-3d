@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("In m/s")][SerializeField] float xSpeed = 4f;
     [Tooltip("In m")][SerializeField] float xRange = 2f;
     [Tooltip("In m")][SerializeField] float yRange = 1f;
+	[SerializeField] GameObject[] guns;
 
     [Header("Screen Positioning")]
     [SerializeField] float positionPitchFactor = -5f;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         {
             ProcessTranslation();
             ProcessRotation();
+			ProcessFiring();
         }
     }
 
@@ -55,6 +57,27 @@ public class PlayerController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
+
+	void ProcessFiring()
+	{
+		if (CrossPlatformInputManager.GetButton("Fire"))
+		{
+			ActivateGuns (true);
+		} 
+		else
+		{
+			ActivateGuns(false);
+		}
+	}
+
+	void ActivateGuns(bool activate)
+	{
+		foreach(GameObject gun in guns)
+		{
+			var emissionModule = gun.GetComponent<ParticleSystem>().emission;
+			emissionModule.enabled = activate;
+		}
+	}
 
     void OnPlayerDeath()
     {
