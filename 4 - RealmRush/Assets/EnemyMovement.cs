@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] List<Block> path;
+    [SerializeField] List<Waypoint> path;
 
     void Start()
     {
-        
+        StartCoroutine(FollowPath());
     }
     
     void Update()
@@ -16,9 +16,12 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
-    protected void PrintWaypoints()
+    protected IEnumerator FollowPath()
     {
-        foreach (Block waypoint in path)
-            print(waypoint.name);
+        foreach (Waypoint waypoint in path)
+        {
+            transform.position = waypoint.transform.position;
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
