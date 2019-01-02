@@ -19,6 +19,13 @@
 /3 - RailsShooter/[Bb]uilds/
 /3 - RailsShooter/Assets/AssetStoreTools*
 
+/4 - RealmRush/[Ll]ibrary/
+/4 - RealmRush/[Tt]emp/
+/4 - RealmRush/[Oo]bj/
+/4 - RealmRush/[Bb]uild/
+/4 - RealmRush/[Bb]uilds/
+/4 - RealmRush/Assets/AssetStoreTools*
+
 # Visual Studio cache directory
 .vs/
 
