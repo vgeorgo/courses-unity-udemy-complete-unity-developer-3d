@@ -6,6 +6,9 @@ public class Waypoint : MonoBehaviour
 {
     const int gridSize = 10;
 
+    [HideInInspector] public bool isQueued = false;
+    [HideInInspector] public Waypoint exploredFrom = null;
+
     Vector2Int gridPos;
 
     public int GetGridSize()

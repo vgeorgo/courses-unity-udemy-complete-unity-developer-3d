@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] List<Waypoint> path;
-
     void Start()
     {
-        StartCoroutine(FollowPath());
-    }
-    
-    void Update()
-    {
-        
+        Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
+        StartCoroutine(FollowPath(pathfinder.GetPath()));
     }
 
-    protected IEnumerator FollowPath()
+    protected IEnumerator FollowPath(List<Waypoint> path)
     {
         foreach (Waypoint waypoint in path)
         {
