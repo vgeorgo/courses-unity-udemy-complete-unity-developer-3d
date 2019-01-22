@@ -17,7 +17,6 @@ public class Pathfinder : MonoBehaviour
     public List<Waypoint> GetPath()
     {
         LoadWaypoints();
-        ColorStartAndEnd();
         BreadthFirstSearch();
         CreatePath();
         return path;
@@ -28,6 +27,9 @@ public class Pathfinder : MonoBehaviour
         var waypoints = FindObjectsOfType<Waypoint>();
         foreach(Waypoint w in waypoints)
         {
+            if (!w.isPath)
+                continue;
+
             var gridPos = w.GetGridPos();
 
             if(grid.ContainsKey(gridPos))
@@ -38,12 +40,6 @@ public class Pathfinder : MonoBehaviour
 
             grid.Add(gridPos, w);
         }
-    }
-
-    void ColorStartAndEnd()
-    {
-        startWaypoint.SetTopColor(Color.green);
-        endWaypoint.SetTopColor(Color.red);
     }
 
     void BreadthFirstSearch()

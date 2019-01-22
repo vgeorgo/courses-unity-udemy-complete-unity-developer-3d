@@ -31,6 +31,9 @@ public class CubeEditor : MonoBehaviour
         int gridSize = waypoint.GetGridSize();
         Vector2Int gridPos = waypoint.GetGridPos();
 
-        gameObject.name = textMesh.text = gridPos.x + "," + gridPos.y;
+        gameObject.name = gridPos.x + "," + gridPos.y;
+        if (textMesh != null)
+            textMesh.text = gameObject.name;
+        
     }
 }
