@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 7492620257482781123}
   enemy: {fileID: 0}
+  attackRange: 30
+  projectParticle: {fileID: 800426290351202373}
 --- !u!1 &6015420063248077733
 GameObject:
   m_ObjectHideFlags: 0
