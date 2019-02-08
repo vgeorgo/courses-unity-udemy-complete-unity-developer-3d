@@ -102,8 +102,9 @@ GameObject:
   - component: {fileID: 6259940747315352776}
   - component: {fileID: 1999520659097865296}
   - component: {fileID: 7669744685056589086}
+  - component: {fileID: 691391170674812835}
   m_Layer: 0
-  m_Name: Waypoint
+  m_Name: WaypointGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,9 +150,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458cb41bf9959e549b55045393729133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPath: 1
+  isPossiblePath: 1
+  isPlaceable: 1
+  towerPrefab: {fileID: 7427489397064214567, guid: 7e083b8a72b8bc3448d43ce87e5e1422,
+    type: 3}
   isQueued: 0
   exploredFrom: {fileID: 0}
+--- !u!65 &691391170674812835
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259940747315352783}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1001 &8260815777228023006
 PrefabInstance:
   m_ObjectHideFlags: 0

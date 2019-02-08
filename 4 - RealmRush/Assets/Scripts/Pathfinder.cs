@@ -34,7 +34,7 @@ public class Pathfinder : MonoBehaviour
         var waypoints = FindObjectsOfType<Waypoint>();
         foreach(Waypoint w in waypoints)
         {
-            if (!w.isPath)
+            if (!w.isPossiblePath)
                 continue;
 
             var gridPos = w.GetGridPos();
@@ -99,6 +99,7 @@ public class Pathfinder : MonoBehaviour
 
         do
         {
+            w.isPlaceable = false;
             path.Add(w);
             w = w.exploredFrom;
         }

@@ -6,7 +6,9 @@ public class Waypoint : MonoBehaviour
 {
     const int gridSize = 10;
 
-    public bool isPath = true;
+    public bool isPossiblePath = true;
+    public bool isPlaceable = true;
+    [SerializeField] Tower towerPrefab = null;
     [HideInInspector] public bool isQueued = false;
     [HideInInspector] public Waypoint exploredFrom = null;
 
@@ -23,5 +25,14 @@ public class Waypoint : MonoBehaviour
             Mathf.RoundToInt(transform.position.x / gridSize),
             Mathf.RoundToInt(transform.position.z / gridSize)
         );
+    }
+
+    void OnMouseOver()
+    {
+        if(Input.GetMouseButtonUp(0) && isPlaceable)
+        {
+            Instantiate(towerPrefab, transform.position, Quaternion.identity);
+            isPlaceable = false;
+        }
     }
 }

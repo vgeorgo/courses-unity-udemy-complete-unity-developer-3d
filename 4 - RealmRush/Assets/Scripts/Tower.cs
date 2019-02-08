@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] Transform head;
-    [SerializeField] Transform enemy;
+    [SerializeField] Transform head = null;
     [SerializeField] float attackRange = 10f;
-    [SerializeField] ParticleSystem projectParticle;
+    [SerializeField] ParticleSystem projectParticle = null;
+
+    Transform target = null;
 
     void Update()
     {
-        if(enemy)
+        SetTargetEnemy();
+        if (target)
         {
-            head.LookAt(enemy);
+            head.LookAt(target);
             FireAtEnemy();
         }
         else
@@ -22,10 +24,30 @@ public class Tower : MonoBehaviour
         }
     }
 
+    void SetTargetEnemy()
+    {
+        var sceneEnemies = FindObjectsOfType<EnemyDamage>();
+        if (sceneEnemies.Length == 0)
+            return;
+
+        target = sceneEnemies[0].transform;
+        foreach(EnemyDamage testDist in sceneEnemies)
+        {
+            target = TestDistance(target, testDist.transform);
+        }
+    }
+
+    protected Transform TestDistance(Transform t1, Transform t2)
+    {
+        var d1 = Vector3.Distance(transform.position, t1.position);
+        var d2 = Vector3.Distance(transform.position, t2.position);
+        return d1 < d2 ? t1 : t2;
+    }
+
     void FireAtEnemy()
     {
-        float distanceToEnemy = Vector3.Distance(enemy.transform.position, gameObject.transform.position);
-        if(distanceToEnemy <= attackRange)
+        float distanceToEnemy = Vector3.Distance(target.transform.position, gameObject.transform.position);
+        if (distanceToEnemy <= attackRange)
         {
             Shoot(true);
         }
