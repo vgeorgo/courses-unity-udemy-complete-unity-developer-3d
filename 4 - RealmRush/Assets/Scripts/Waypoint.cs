@@ -8,7 +8,6 @@ public class Waypoint : MonoBehaviour
 
     public bool isPossiblePath = true;
     public bool isPlaceable = true;
-    [SerializeField] Tower towerPrefab = null;
     [HideInInspector] public bool isQueued = false;
     [HideInInspector] public Waypoint exploredFrom = null;
 
@@ -31,8 +30,7 @@ public class Waypoint : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0) && isPlaceable)
         {
-            Instantiate(towerPrefab, transform.position, Quaternion.identity);
-            isPlaceable = false;
+            FindObjectOfType<TowerFactory>().AddTower(this);
         }
     }
 }

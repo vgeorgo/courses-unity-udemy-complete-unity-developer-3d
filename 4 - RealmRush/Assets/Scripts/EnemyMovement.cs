@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float delay = 1f;
+    [SerializeField] ParticleSystem goalParticlePrefab;
+
     void Start()
     {
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
@@ -18,5 +20,14 @@ public class EnemyMovement : MonoBehaviour
             transform.position = waypoint.transform.position;
             yield return new WaitForSeconds(delay);
         }
+
+        Kill();
+    }
+
+    void Kill()
+    {
+        var vfx = Instantiate(goalParticlePrefab, transform.position, Quaternion.identity);
+        Destroy(vfx.gameObject, vfx.main.duration);
+        Destroy(gameObject);
     }
 }
