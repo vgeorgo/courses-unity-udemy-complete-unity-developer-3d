@@ -6,8 +6,8 @@ public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] Collider collisionMesh;
     [SerializeField] int hitPoints = 10;
-    [SerializeField] ParticleSystem hitParticlePrefab;
-    [SerializeField] ParticleSystem deathParticlePrefab;
+    [SerializeField] ParticleSystem hitParticlePrefab = null;
+    [SerializeField] ParticleSystem deathParticlePrefab = null;
 
     void Start()
     {

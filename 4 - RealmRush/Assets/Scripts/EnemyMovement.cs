@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float delay = 1f;
-    [SerializeField] ParticleSystem goalParticlePrefab;
+    [SerializeField] ParticleSystem goalParticlePrefab = null;
 
     void Start()
     {
