@@ -8,11 +8,15 @@ public class EnemySpawner : MonoBehaviour
     [Range(0.3f, 60f)] [SerializeField] float secondsBetweenSpawns = 2f;
     [SerializeField] EnemyMovement enemyPrefab = null;
     [SerializeField] Text textScore = null;
+    [SerializeField] AudioClip spawnSfx = null;
+
+    AudioSource audioSource = null;
 
     int score = 0;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         UpdateScore();
         StartCoroutine(SpawnEnemies());
     }
@@ -24,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
             var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             enemy.transform.parent = transform;
             AddScore();
+            audioSource.PlayOneShot(spawnSfx);
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
     }
